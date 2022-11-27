@@ -31,11 +31,13 @@ class _SetDataState extends State<SetData> {
 
 
   @override
+  /// 등록 시 화면을 초기화하기위해 super.initState() 제거함
+  /// 문제 시 수정
   void initState() {
-    super.initState();
     _nameController = TextEditingController();
     _barcodeController = TextEditingController();
     _birthDay = initDate.toString().split(' ')[0];
+    // super.initState();
   }
 
   @override
@@ -163,7 +165,11 @@ class _SetDataState extends State<SetData> {
                         } else if (widget.helper.contains(barcode)) {
                           getAlertDialog(context, "이미 등록된 환자입니다!\n바코드를 다시 스캔해 주세요.");
                         } else {
-                          getAlertDialog(context, "등록이 완료되었습니다!");
+                          getAlertDialog(context, "등록이 완료되었습니다!").then((value) {
+                            setState(() {
+                              initState();
+                            });
+                          });
                           saveInfo();
                         }
                       },
