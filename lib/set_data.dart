@@ -22,28 +22,37 @@ class SetData extends StatefulWidget {
 class _SetDataState extends State<SetData> {
 
   late TextEditingController _nameController;
-  late TextEditingController _barcodeController;
   late String _birthDay;
+  String _gender = "남자";
 
   String barcode = " ";
   bool detected = false;
+  bool birthCheck = false;
+  bool genderCheck = false;
   DateTime initDate = DateFormat('yyyy-MM-dd').parse('2000-01-01');
-
+  List<String> genderList = ["남자", "여자", "기타"];
 
   @override
   /// 등록 시 화면을 초기화하기위해 super.initState() 제거함
   /// 문제 시 수정
   void initState() {
     _nameController = TextEditingController();
-    _barcodeController = TextEditingController();
     _birthDay = initDate.toString().split(' ')[0];
     // super.initState();
+  }
+
+  void rollBack() {
+    detected = false;
+    birthCheck = false;
+    genderCheck = false;
+
+    _gender = "남자";
+    barcode = " ";
   }
 
   @override
   void dispose() {
     _nameController.dispose();
-    _barcodeController.dispose();
     super.dispose();
   }
 
@@ -114,20 +123,55 @@ class _SetDataState extends State<SetData> {
                       cursorHeight: 40,
                       style: TEXT_STYLE,
                       readOnly: true,
-                      onTap: () => _showDialog(
-                        CupertinoDatePicker(
-                          minimumYear: 1900,
-                          maximumYear: DateTime.now().year,
-                          initialDateTime: initDate,
-                          maximumDate: DateTime.now(),
-                          onDateTimeChanged: (DateTime newDate) {
-                            setState(() {
-                              _birthDay = newDate.toString().split(' ')[0];
-                            });
-                          },
-                          mode: CupertinoDatePickerMode.date,
-                        ),
-                      )
+                      onTap: () {
+                        birthCheck = true;
+                        _showDialog(
+                          CupertinoDatePicker(
+                            minimumYear: 1900,
+                            maximumYear: DateTime
+                                .now()
+                                .year,
+                            initialDateTime: initDate,
+                            maximumDate: DateTime.now(),
+                            onDateTimeChanged: (DateTime newDate) {
+                              setState(() {
+                                _birthDay = newDate.toString().split(' ')[0];
+                              });
+                            },
+                            mode: CupertinoDatePickerMode.date,
+                          ),
+                        );
+                      }
+                    ),
+                    const Divider(
+                      thickness: 1,
+                      color: Colors.black,
+                    ),
+                    CupertinoTextField.borderless(
+                        padding: TEXT_FIELD_PADDING,
+                        prefix: getText("성별"),
+                        placeholder: _gender,
+                        cursorHeight: 40,
+                        style: TEXT_STYLE,
+                        readOnly: true,
+                        onTap: () {
+                          genderCheck = true;
+                          _showDialog(
+                              CupertinoPicker(
+                                itemExtent: 35,
+                                onSelectedItemChanged: (int value) {
+                                  setState(() {
+                                    _gender = genderList[value];
+                                  });
+                                },
+                                children: const [
+                                  Text("남자", style: TextStyle(fontSize: 30)),
+                                  Text("여자", style: TextStyle(fontSize: 30)),
+                                  Text("기타", style: TextStyle(fontSize: 30))
+                                ],
+                              )
+                          );
+                        }
                     ),
                   ],
                 ),
@@ -160,6 +204,10 @@ class _SetDataState extends State<SetData> {
                       onPressed: () {
                         if (_nameController.text.isEmpty) {
                           getAlertDialog(context, "이름을 입력하세요!");
+                        } else if (!birthCheck) {
+                          getAlertDialog(context, "생일을 입력하세요!");
+                        } else if (!genderCheck) {
+                          getAlertDialog(context, "성별을 고르세요!");
                         } else if (!detected) {
                           getAlertDialog(context, "바코드 스캔을 하세요!");
                         } else if (widget.helper.contains(barcode)) {
@@ -168,6 +216,7 @@ class _SetDataState extends State<SetData> {
                           getAlertDialog(context, "등록이 완료되었습니다!").then((value) {
                             setState(() {
                               initState();
+                              rollBack();
                             });
                           });
                           saveInfo();
@@ -192,7 +241,7 @@ class _SetDataState extends State<SetData> {
     Person person = Person(
         _nameController.text,
         barcode,
-        "male", imagePath, _birthDay.toString()
+        _gender, imagePath, _birthDay.toString()
     );
     // widget.preferences.setString(barcode, person.toString());
     widget.helper.writeInfo(barcode, person);
