@@ -1,5 +1,6 @@
 import 'package:cupertino_list_tile/cupertino_list_tile.dart';
 import 'package:ediya/config.dart';
+import 'package:ediya/util.dart';
 import 'package:flutter/material.dart';
 import 'person.dart';
 import 'package:flutter/cupertino.dart';
@@ -121,7 +122,9 @@ class _ListPageInfoState extends State<ListPageInfo> {
                           CupertinoButton(
                             onPressed: () {
                               widget.helper.removePerson(widget.person.barcode);
-                              Navigator.pop(context);
+                              getAlertDialog(context, "삭제되었습니다.").then(
+                                Navigator.of(context).pop
+                              );
                             },
                             child: const Text("예"),
                           )
