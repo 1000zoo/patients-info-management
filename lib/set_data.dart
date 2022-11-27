@@ -163,6 +163,7 @@ class _SetDataState extends State<SetData> {
                         } else if (widget.helper.contains(barcode)) {
                           getAlertDialog(context, "이미 등록된 환자입니다!\n바코드를 다시 스캔해 주세요.");
                         } else {
+                          getAlertDialog(context, "등록이 완료되었습니다!");
                           saveInfo();
                         }
                       },
