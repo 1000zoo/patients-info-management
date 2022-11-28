@@ -25,6 +25,10 @@ class SPHelper {
     return list;
   }
 
+  Person getPersonInfo(String barcode) {
+    return Person.fromJson(json.decode(prefs.getString(barcode) ?? ' '));
+  }
+
   String getPersonName(String barcode) {
     return Person.fromJson(json.decode(prefs.getString(barcode) ?? ' ')).name;
   }
