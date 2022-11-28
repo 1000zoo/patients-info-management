@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:ediya/camera_page.dart';
 import 'package:ediya/set_data.dart';
 import 'package:ediya/sp_helper.dart';
@@ -6,33 +7,37 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:ediya/list_page.dart';
 import 'package:flutter/cupertino.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final cameras = await availableCameras();
+  runApp(MyApp(cameras[1]));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final CameraDescription camera;
+  const MyApp(this.camera, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Flutter Demo',
-      localizationsDelegates: [
+      localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate
       ],
-      supportedLocales: [
+      supportedLocales: const [
         Locale('ko', ''),
         Locale('en', ''),
       ],
-      home: MainPage(),
+      home: MainPage(camera),
     );
   }
 }
 
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+  final CameraDescription camera;
+  const MainPage(this.camera, {super.key});
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -57,7 +62,6 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
-
       tabBar: CupertinoTabBar(items: items,),
       tabBuilder: (context, index) {
         switch(index) {
@@ -76,7 +80,7 @@ class _MainPageState extends State<MainPage> {
             return ListPage(helper);
           default:
             // initState();
-            return CameraPage(helper);
+            return CameraPage(helper, widget.camera);
         }
       },
     );
