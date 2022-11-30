@@ -25,4 +25,15 @@ Future<dynamic> getAlertDialog(BuildContext context, String error) {
   );
 }
 
+
+String nowString() {
+  List<String> temp = DateTime.now().toString().split(" ");
+  String onlyDate = temp[0];
+  String onlyTime = temp[1];
+  String hour = onlyTime.split(":")[0];
+  String minute = onlyTime.split(":")[1];
+  String second = onlyTime.split(":")[2].split(".")[0];
+  return "$onlyDate-$hour-$minute-$second";
+}
+
 ///Todo util.dart 및 config.dart 편의성 개선 (안해도 됨)
