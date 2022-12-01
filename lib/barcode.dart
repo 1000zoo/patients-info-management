@@ -81,7 +81,7 @@ class _BarcodeState extends State<Barcode> {
                       // 에러 발생시..
                       onError: (context, error) => Text(
                         error.toString(),
-                        style: const TextStyle(color: Color(0xD53EB8CB)),
+                        style: const TextStyle(color: TEXT_COLOR),
                       ),
                       // QR 이 읽혔을 경우
                       qrCodeCallback: (code) {
@@ -96,7 +96,7 @@ class _BarcodeState extends State<Barcode> {
                       decoration: BoxDecoration(
                         border: Border.all(
                           width: 3.0,
-                          color: const Color(0xD53EB8CB)
+                          color: BARCODE_COLOR
                         )
                       ),
                     ),
@@ -106,7 +106,7 @@ class _BarcodeState extends State<Barcode> {
                       decoration: BoxDecoration(
                           border: Border.all(
                               width: 2.0,
-                              color: const Color(0xD53EB8CB)
+                              color: BARCODE_COLOR
                           )
                       ),
                     )
@@ -120,18 +120,18 @@ class _BarcodeState extends State<Barcode> {
                   ? Center(
                       child: CupertinoButton(
                         padding: BUTTON_PADDING,
-                        color: const Color(0xaa6d93e3),
+                        color: BUTTON_COLOR,
                         borderRadius: BorderRadius.circular(10),
                         onPressed: () {
                           Navigator.pop(context, _qrInfo);
                         },
                         child: _contains
-                          ? Text(widget.helper.getPersonName(_qrInfo.toString()), style: TEXT_STYLE,)
-                          : const Text("환자정보 없음", style: TEXT_STYLE,)
+                          ? Text(widget.helper.getPersonName(_qrInfo.toString()), style: DEFAULT_TEXTSTYLE,)
+                          : const Text("환자정보 없음", style: DEFAULT_TEXTSTYLE,)
                         ,
                       ),
                     )
-                  : Center(child: Text(_qrInfo.toString(), style: TEXT_STYLE,))
+                  : Center(child: Text(_qrInfo.toString(), style: DEFAULT_TEXTSTYLE,))
             )
 
           ],

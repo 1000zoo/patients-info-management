@@ -61,12 +61,12 @@ class _CameraState extends State<Camera> {
   // 이미지를 보여주는 위젯
   Widget showImage() {
     return Container(
-        color: const Color(0xffd0cece),
+        color: ETC_COLOR,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height / 1.2,
         child: Center(
             child: tempImage == null
-                ? const Text('No image selected.', style: TEXT_STYLE)
+                ? const Text('No image selected.', style: DEFAULT_TEXTSTYLE)
                 : Image.file(File(tempImage!.path))));
   }
 
@@ -78,7 +78,7 @@ class _CameraState extends State<Camera> {
 
     return CupertinoPageScaffold(
         navigationBar: const CupertinoNavigationBar(
-          middle: Text("사진", style: TEXT_STYLE_FOR_TITLE),
+          middle: Text("사진", style: TITLE_TEXTSTYLE),
         ),
         child: ListView(
             // mainAxisAlignment: MainAxisAlignment.center,
@@ -91,7 +91,7 @@ class _CameraState extends State<Camera> {
                     SizedBox(width: MediaQuery.of(context).size.width / 1.2),
                     CupertinoButton(
                       padding: BUTTON_PADDING,
-                      color: const Color(0x9D283FE5),
+                      color: BUTTON_COLOR,
                       onPressed: () {
                         getImage(ImageSource.camera);
                       },
@@ -112,12 +112,12 @@ class _CameraState extends State<Camera> {
                         });
                       },
                       initialKeyValue: '그럭저럭',
-                      selectedColor: const Color(0x9D283FE5),
+                      selectedColor: BUTTON_COLOR,
                     ),
                     SizedBox(width: MediaQuery.of(context).size.width / 2.1),
                     CupertinoButton(
                       padding: BUTTON_PADDING,
-                      color: const Color(0x9D283FE5),
+                      color: BUTTON_COLOR,
                       onPressed: () {
                         if (!moodCheck) {
                           getAlertDialog(context, "기분을 선택하세요!");
@@ -160,7 +160,7 @@ class _CameraState extends State<Camera> {
                       },
                       child: const Text(
                         "저장",
-                        style: TEXT_STYLE,
+                        style: DEFAULT_TEXTSTYLE,
                       ),
                     )
                   ],

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ediya/config.dart';
 
 Text getText(String string) {
-  return Text(string, style: TEXT_STYLE, textAlign: TextAlign.center,);
+  return Text(string, style: DEFAULT_TEXTSTYLE, textAlign: TextAlign.center,);
 }
 
 Future<dynamic> getAlertDialog(BuildContext context, String error) {
@@ -11,7 +11,7 @@ Future<dynamic> getAlertDialog(BuildContext context, String error) {
       context: context,
       builder: (context) {
         return CupertinoAlertDialog(
-          title: Text(error, style: TEXT_STYLE_FOR_ALERT_DIALOG),
+          title: Text(error, style: ALERT_DIALOG_TEXTSTYLE),
           actions: [
             CupertinoButton(
               onPressed: () {

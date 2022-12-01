@@ -40,7 +40,7 @@ class _ListPageState extends State<ListPage> {
     }
     if (tiles.isEmpty) {
       tiles.add(SizedBox(height: MediaQuery.of(context).size.height/30,));
-      tiles.add(const Text("등록된 환자가 없습니다.", textAlign: TextAlign.center, style: TEXT_STYLE,));
+      tiles.add(const Text("등록된 환자가 없습니다.", textAlign: TextAlign.center, style: DEFAULT_TEXTSTYLE,));
     }
     return tiles;
   }
@@ -49,7 +49,7 @@ class _ListPageState extends State<ListPage> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
-        middle: Text("환자 목록", style: TEXT_STYLE_FOR_TITLE),
+        middle: Text("환자 목록", style: TITLE_TEXTSTYLE),
       ),
       child: ListView(
         children: getContent()
@@ -75,7 +75,7 @@ class _ListPageInfoState extends State<ListPageInfo> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
-        middle: Text("환자 정보", style: TEXT_STYLE_FOR_TITLE),
+        middle: Text("환자 정보", style: TITLE_TEXTSTYLE),
       ),
       child: ListView(
         children: [
@@ -84,19 +84,19 @@ class _ListPageInfoState extends State<ListPageInfo> {
             padding: const EdgeInsets.all(8.0),
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.blueGrey[200],
+                color: TEXTFIELD_COLOR,
                 borderRadius: BorderRadius.circular(10),
               ),
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(widget.person.name, style: TEXT_STYLE),
+                  Text(widget.person.name, style: DEFAULT_TEXTSTYLE),
                   const Divider(
                     thickness: 1,
-                    color: Colors.black,
+                    color: DIVIDER_COLOR,
                   ),
-                  Text(widget.person.toString(), style: TEXT_STYLE,)
+                  Text(widget.person.toString(), style: DEFAULT_TEXTSTYLE,)
                 ],
               ),
             ),
@@ -111,7 +111,7 @@ class _ListPageInfoState extends State<ListPageInfo> {
                     context: context,
                     builder: (context) {
                       return CupertinoAlertDialog(
-                        title: const Text("삭제하시겠습니까?", style: TEXT_STYLE_FOR_ALERT_DIALOG),
+                        title: const Text("삭제하시겠습니까?", style: ALERT_DIALOG_TEXTSTYLE),
                         actions: [
                           CupertinoButton(
                             onPressed: () {
@@ -124,7 +124,7 @@ class _ListPageInfoState extends State<ListPageInfo> {
                               widget.helper.removePerson(widget.person.barcode);
                               getAlertDialog(context, "삭제되었습니다.").then(
                                 Navigator.of(context).pop
-                              );
+                              ).then(Navigator.of(context).pop);
                             },
                             child: const Text("예"),
                           )
@@ -133,9 +133,9 @@ class _ListPageInfoState extends State<ListPageInfo> {
                     }
                   );
                 },
-                color: Colors.blue[100],
+                color: BUTTON_COLOR,
                 borderRadius: BorderRadius.circular(10),
-                child: const Text("환자 삭제", style: TEXT_STYLE),
+                child: const Text("환자 삭제", style: DEFAULT_TEXTSTYLE),
               ),
             ),
           )

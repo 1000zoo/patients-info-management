@@ -80,7 +80,7 @@ class _SetDataState extends State<SetData> {
             navigationBar: const CupertinoNavigationBar(
                 middle: Text(
               "환자 추가하기",
-              style: TEXT_STYLE_FOR_TITLE,
+              style: TITLE_TEXTSTYLE,
             )),
             child: ListView(children: [
               // SizedBox(height: MediaQuery.of(context).size.height / 10),
@@ -89,7 +89,7 @@ class _SetDataState extends State<SetData> {
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.blueGrey[200],
+                        color: TEXTFIELD_COLOR,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       padding: const EdgeInsets.all(8.0),
@@ -100,15 +100,15 @@ class _SetDataState extends State<SetData> {
                           prefix: const Text(
                             "이름",
                             textAlign: TextAlign.center,
-                            style: TEXT_STYLE,
+                            style: DEFAULT_TEXTSTYLE,
                           ),
                           placeholder: '홍길동',
                           cursorHeight: 40,
-                          style: TEXT_STYLE,
+                          style: DEFAULT_TEXTSTYLE,
                         ),
                         const Divider(
                           thickness: 1,
-                          color: Colors.black,
+                          color: DIVIDER_COLOR,
                         ),
 
                         /// TODO 해결 Birthday DatePicker 키보드 안나오게 하기
@@ -119,7 +119,7 @@ class _SetDataState extends State<SetData> {
                             prefix: getText("생년월일"),
                             placeholder: _birthDay,
                             cursorHeight: 40,
-                            style: TEXT_STYLE,
+                            style: DEFAULT_TEXTSTYLE,
                             readOnly: true,
                             onTap: () {
                               birthCheck = true;
@@ -138,14 +138,14 @@ class _SetDataState extends State<SetData> {
                             }),
                         const Divider(
                           thickness: 1,
-                          color: Colors.black,
+                          color: DIVIDER_COLOR,
                         ),
                         CupertinoTextField.borderless(
                             padding: TEXT_FIELD_PADDING,
                             prefix: getText("성별"),
                             placeholder: _gender,
                             cursorHeight: 40,
-                            style: TEXT_STYLE,
+                            style: DEFAULT_TEXTSTYLE,
                             readOnly: true,
                             onTap: () {
                               genderCheck = true;
@@ -179,9 +179,9 @@ class _SetDataState extends State<SetData> {
                             " ";
                         detected = barcode != " ";
                       },
-                      color: Colors.blue[100],
+                      color: BUTTON_COLOR,
                       borderRadius: BorderRadius.circular(10),
-                      child: const Text("바코드", style: TEXT_STYLE)),
+                      child: const Text("바코드", style: DEFAULT_TEXTSTYLE)),
                   SizedBox(height: MediaQuery.of(context).size.height / 90),
                   CupertinoButton(
                     padding: BUTTON_PADDING,
@@ -207,9 +207,9 @@ class _SetDataState extends State<SetData> {
                         saveInfo();
                       }
                     },
-                    color: Colors.blue[100],
+                    color: BUTTON_COLOR,
                     borderRadius: BorderRadius.circular(10),
-                    child: const Text("등록", style: TEXT_STYLE),
+                    child: const Text("등록", style: DEFAULT_TEXTSTYLE),
                   )
                 ])
               ])
