@@ -150,4 +150,5 @@ coverage/
 !/dev/ci/**/Gemfile.lock
 
 before_start.txt
+backup.txt
 .DS_Store
