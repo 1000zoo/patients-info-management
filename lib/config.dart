@@ -3,30 +3,38 @@
 import 'package:flutter/material.dart';
 
 ///TextStyle
+const FONT_FAMILY = 'Pretendard';
+
 const TextStyle DEFAULT_TEXTSTYLE = TextStyle(
   color: TEXT_COLOR,
   fontSize: 40,
+  fontFamily: FONT_FAMILY,
+  fontWeight: FontWeight.w400,
   decoration: TextDecoration.none,
 );
 const TextStyle TITLE_TEXTSTYLE = TextStyle(
     color: TEXT_COLOR,
     fontSize: 30,
+    fontFamily: FONT_FAMILY,
+    fontWeight: FontWeight.w700,
     decoration: TextDecoration.none
 );
 const TextStyle ALERT_DIALOG_TEXTSTYLE = TextStyle(
     color: TEXT_COLOR,
     fontSize: 20,
+    fontFamily: FONT_FAMILY,
     decoration: TextDecoration.none
 );
 const TextStyle BUTTON_TEXTSTYLE = TextStyle(
     color: BUTTON_TEXT_COLOR,
     fontSize: 40,
+    fontFamily: FONT_FAMILY,
     decoration: TextDecoration.none
 );
 
 ///Padding
-const EdgeInsetsGeometry TEXT_FIELD_PADDING = EdgeInsets.only(left:65, right: 30, top: 10, bottom: 10);
-const EdgeInsetsGeometry NAME_FIELD_PADDING = EdgeInsets.only(left:130, right: 30, top: 10, bottom: 10);
+const EdgeInsetsGeometry TEXT_FIELD_PADDING = EdgeInsets.only(left:130, right: 30, top: 10, bottom: 10);
+const EdgeInsetsGeometry BIRTH_FIELD_PADDING = EdgeInsets.only(left:65, right: 30, top: 10, bottom: 10);
 
 
 ///Button
