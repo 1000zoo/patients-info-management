@@ -61,12 +61,12 @@ class _CameraState extends State<Camera> {
   // 이미지를 보여주는 위젯
   Widget showImage() {
     return Container(
-        color: ETC_COLOR,
+        // color: ETC_COLOR,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height / 1.2,
         child: Center(
             child: tempImage == null
-                ? const Text('No image selected.', style: DEFAULT_TEXTSTYLE)
+                ? const Text('사진을 촬영하세요.', style: DEFAULT_TEXTSTYLE)
                 : Image.file(File(tempImage!.path))));
   }
 
@@ -78,7 +78,7 @@ class _CameraState extends State<Camera> {
 
     return CupertinoPageScaffold(
         navigationBar: const CupertinoNavigationBar(
-          middle: Text("사진", style: TITLE_TEXTSTYLE),
+          middle: Text("사진 찍기", style: TITLE_TEXTSTYLE),
         ),
         child: ListView(
             // mainAxisAlignment: MainAxisAlignment.center,
