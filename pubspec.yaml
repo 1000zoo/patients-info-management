@@ -45,6 +45,11 @@ dependencies:
   intl: ^0.17.0
   shared_preferences: ^2.0.15
   cupertino_list_tile: ^0.2.1
+  camera: ^0.10.0+4
+  path_provider: ^2.0.11
+  gallery_saver: ^2.3.2
+  cupertino_radio_choice: ^1.0.2
+  barcode_scan2: ^4.2.1
 
 dev_dependencies:
   flutter_test:
@@ -95,6 +100,20 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
-  #
+
+  fonts:
+    ## refer: https://blog.naver.com/happygwedu/221897547714
+    ## https://noonnu.cc/font_page/802
+    - family: GangWon
+      fonts:
+        - asset: assets/font/강원교육새음.otf
+          weight: 200
+
+    - family: Pretendard
+      fonts:
+        - asset: assets/font/Pretendard-Regular.otf
+          weight: 400
+        - asset: assets/font/Pretendard-Bold.otf
+          weight: 700
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
