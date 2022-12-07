@@ -25,6 +25,9 @@ class MyApp extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate
       ],
+      theme: ThemeData(
+        fontFamily: 'GangWon'
+      ),
       supportedLocales: const [
         Locale('ko', ''),
         Locale('en', ''),
@@ -65,15 +68,6 @@ class _MainPageState extends State<MainPage> {
       tabBar: CupertinoTabBar(items: items,),
       tabBuilder: (context, index) {
         switch(index) {
-          // case 0:
-          //   return CupertinoTabView(
-          //     builder: (context) {
-          //       ///TODO 1. 바코드 인식 후 사진 촬영하러 ㄱㄱ
-          //       /// 1) 바코드 인식 -> 있다 -> 카메라 촬영 -> 기분 어떰? -> 저장
-          //       /// 2)          -> 없다 -> 없다는 alertAlarm popup (환자를 추가하세요)
-          //       return Test1();
-          //     },
-          //   );
           case 1:
             return SetData(helper);
           case 2:

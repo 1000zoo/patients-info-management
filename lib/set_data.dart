@@ -96,7 +96,7 @@ class _SetDataState extends State<SetData> {
                       child: Column(mainAxisSize: MainAxisSize.min, children: [
                         CupertinoTextField.borderless(
                           controller: _nameController,
-                          padding: NAME_FIELD_PADDING,
+                          padding: TEXT_FIELD_PADDING,
                           prefix: const Text(
                             "이름",
                             textAlign: TextAlign.center,
@@ -115,7 +115,7 @@ class _SetDataState extends State<SetData> {
                         ///디자인을 해치지 않으면서, 키보드 안나오게 하기
                         ///(TextField 말고 다른거 찾기)
                         CupertinoTextField.borderless(
-                            padding: TEXT_FIELD_PADDING,
+                            padding: BIRTH_FIELD_PADDING,
                             prefix: getText("생년월일"),
                             placeholder: _birthDay,
                             cursorHeight: 40,
@@ -181,7 +181,7 @@ class _SetDataState extends State<SetData> {
                       },
                       color: BUTTON_COLOR,
                       borderRadius: BorderRadius.circular(10),
-                      child: const Text("바코드", style: DEFAULT_TEXTSTYLE)),
+                      child: const Text("바코드", style: BUTTON_TEXTSTYLE)),
                   SizedBox(height: MediaQuery.of(context).size.height / 90),
                   CupertinoButton(
                     padding: BUTTON_PADDING,
@@ -209,7 +209,7 @@ class _SetDataState extends State<SetData> {
                     },
                     color: BUTTON_COLOR,
                     borderRadius: BorderRadius.circular(10),
-                    child: const Text("등록", style: DEFAULT_TEXTSTYLE),
+                    child: const Text("등록", style: BUTTON_TEXTSTYLE),
                   )
                 ])
               ])

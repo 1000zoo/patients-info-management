@@ -22,7 +22,7 @@ class _ListPageState extends State<ListPage> {
       tiles.add(
           CupertinoListTile(
             title: Text(person.name),
-            subtitle: Text("${person.barcode}-${person.imagePath}-${person.birth}-${person.gender}"),
+            subtitle: Text("바코드:${person.barcode}/생년월일:${person.birth}/성별:${person.gender}"),
             onTap: () {
               Navigator.push(
                 context,
@@ -96,7 +96,9 @@ class _ListPageInfoState extends State<ListPageInfo> {
                     thickness: 1,
                     color: DIVIDER_COLOR,
                   ),
-                  Text(widget.person.toString(), style: DEFAULT_TEXTSTYLE,)
+                  Text("바코드: ${widget.person.barcode}", style: DEFAULT_TEXTSTYLE),
+                  Text("생년월일: ${widget.person.birth}", style: DEFAULT_TEXTSTYLE),
+                  Text("성별: ${widget.person.gender}", style: DEFAULT_TEXTSTYLE),
                 ],
               ),
             ),
@@ -135,7 +137,7 @@ class _ListPageInfoState extends State<ListPageInfo> {
                 },
                 color: BUTTON_COLOR,
                 borderRadius: BorderRadius.circular(10),
-                child: const Text("환자 삭제", style: DEFAULT_TEXTSTYLE),
+                child: const Text("환자 삭제", style: BUTTON_TEXTSTYLE),
               ),
             ),
           )
