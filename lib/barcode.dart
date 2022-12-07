@@ -1,4 +1,4 @@
-import 'package:ediya/config.dart';
+import 'package:ediya/constant.dart';
 import 'package:ediya/person.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

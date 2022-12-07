@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:cupertino_radio_choice/cupertino_radio_choice.dart';
-import 'package:ediya/config.dart';
+import 'package:ediya/constant.dart';
 import 'package:ediya/util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

@@ -1,5 +1,5 @@
 import 'package:cupertino_list_tile/cupertino_list_tile.dart';
-import 'package:ediya/config.dart';
+import 'package:ediya/constant.dart';
 import 'package:ediya/util.dart';
 import 'package:flutter/material.dart';
 import 'person.dart';

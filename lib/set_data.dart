@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:ediya/barcode.dart';
-import 'package:ediya/config.dart';
+import 'package:ediya/constant.dart';
 import 'package:ediya/sp_helper.dart';
 import 'package:ediya/util.dart';
 import 'package:flutter/cupertino.dart';

@@ -1,7 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:ediya/barcode.dart';
 import 'package:ediya/camera_test.dart';
-import 'package:ediya/config.dart';
+import 'package:ediya/constant.dart';
 import 'package:ediya/sp_helper.dart';
 import 'package:ediya/util.dart';
 import 'package:flutter/cupertino.dart';

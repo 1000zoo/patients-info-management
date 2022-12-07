@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ediya/config.dart';
+import 'package:ediya/constant.dart';
 
 Text getText(String string) {
   return Text(string, style: DEFAULT_TEXTSTYLE, textAlign: TextAlign.center,);
@@ -36,4 +36,4 @@ String nowString() {
   return "$onlyDate-$hour-$minute-$second";
 }
 
-///Todo util.dart 및 config.dart 편의성 개선 (안해도 됨)
+///Todo util.dart 및 constant.dart 편의성 개선 (안해도 됨)
